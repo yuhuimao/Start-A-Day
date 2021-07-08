@@ -6,22 +6,50 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct DashboardView: View {
+    @State private var newsArray: [News] = []
+    @State private var news: News?
+    
     var body: some View {
-        VStack {
-            NewsCard()
-                .padding(4)
-            
-            HStack(spacing: 1) {
-                WeatherCard()
-                ToDoListView()
+        GeometryReader { geometry in
+            VStack {
+                HStack(spacing: 4) {
+                    WeatherCard()
+                    ToDoListView()
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                
+                List {
+                    ForEach(newsArray) { news in
+                        NewsCard(news: news)
+                            .sheet(item: $news) { news in
+                                WebView(news: news, urlString: news.url)
+                            }
+                            .onTapGesture {
+                                self.news = news
+                            }
+                            .listRowInsets(EdgeInsets())
+                    }
+                }
+                .onAppear(perform: {
+                    NewService.shared.getNews(country: "tw", language: "zh") { result in
+                        switch result {
+                        case .success(let news):
+                            self.newsArray = news
+                            
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                })
+                
+                Spacer()
             }
-            .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-            
-            Spacer()
+            .edgesIgnoringSafeArea(.bottom)
         }
+        
     }
 }
 

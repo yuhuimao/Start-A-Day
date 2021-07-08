@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct NewsCard: View {
+    var news: News
+    
     var body: some View {
-        Image(systemName: "newspaper")
-            .resizable()
-            .aspectRatio(3/2, contentMode: .fit)
-            .overlay(TextOverlay())
-        
+        ImageContainerView(imageURLString: news.imageURL)
+            .overlay(TextOverlay(news: news))
     }
 }
 
 struct TextOverlay: View {
+    var news: News
     var gradient: LinearGradient {
         LinearGradient(gradient: Gradient(colors: [.black.opacity(0.6), .black.opacity(0)]), startPoint: .bottom, endPoint: .center)
     }
@@ -26,8 +26,8 @@ struct TextOverlay: View {
         ZStack(alignment: .bottomLeading) {
             Rectangle().fill(gradient)
             VStack(alignment: .leading, spacing: 8) {
-                Text("新聞標題")
-                Text("出處")
+                Text(news.title)
+                Text(news.author ?? "")
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 12, trailing: 0))
             .foregroundColor(.white)
@@ -35,8 +35,32 @@ struct TextOverlay: View {
     }
 }
 
+struct ImageContainerView: View {
+    var imageURLString: String
+    @State private var imageData: Data = Data()
+    
+    var body: some View {
+        Image(uiImage: (((!imageData.isEmpty) ? UIImage(data: imageData)! : UIImage(systemName: "newspaper")) ?? UIImage()) )
+            .resizable()
+            .aspectRatio(3/2, contentMode: .fit)
+            .onAppear {
+                LoadImage.shared.loadImageData(imageURLString: imageURLString) { result in
+                    
+                    switch result {
+                    case .success(let imageData):
+                        self.imageData = imageData
+                        
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+    }
+}
+
 struct NewsCard_Previews: PreviewProvider {
     static var previews: some View {
-        NewsCard()
+        let news = News(title: "新聞標題", author: "出處", imageURL: "", url: "", publishDate: "")
+        NewsCard(news: news)
     }
 }

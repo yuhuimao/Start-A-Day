@@ -31,10 +31,10 @@ struct ToDoListView: View {
                 .foregroundColor(.white)
             }
         }
-        .frame(width: 180, height: 180, alignment: .center)
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .background(Color.black)
-        .cornerRadius(10)
+        .cornerRadius(20)
+        .aspectRatio(1, contentMode: .fit)
     }
 }
 

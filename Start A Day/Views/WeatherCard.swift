@@ -33,9 +33,11 @@ struct WeatherCard: View {
             }
             .foregroundColor(.white)
         }
-        .cornerRadius(10)
-        .frame(width: 180, height: 180, alignment: .center)
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+        .cornerRadius(20)
+        .frame(minWidth: 0,
+        maxWidth: .infinity,
+        minHeight: 0,
+        maxHeight: .infinity)
     }
 }
 
