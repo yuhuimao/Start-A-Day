@@ -15,3 +15,4 @@
 * 使用UserDefault來儲存「代辦清單」的資訊
 * 使用中央氣象局及NewsAPI的open API來取得天氣及新聞的資訊
 
+![image](https://github.com/yuhuimao/Start-A-Day/blob/main/startADayDemo.png)
