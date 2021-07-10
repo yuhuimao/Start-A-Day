@@ -11,15 +11,19 @@ import Foundation
 class NewService: ObservableObject {
     
     // MARK: - Properties
-    @Published var news: [News] = []
     
     private let networkAdapter: NetworkAdapter<NewsAPI>
+    
+    private let tokenSource = TokenSource.shared
     
     static let shared = NewService()
     
     private init() {
-        networkAdapter = NetworkAdapter<NewsAPI>()
+        tokenSource.token = ""
+        networkAdapter = NetworkAdapter<NewsAPI>(tokenProvider: tokenSource)
     }
+    
+    // MARK: - Methods
     
     func getNews(country: String, language: String, completion: @escaping (Result<[News], Error>) -> Void) {
         print("load news...")

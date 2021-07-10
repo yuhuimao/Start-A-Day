@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct WeatherCard: View {
-    let screenSize = UIScreen.main.bounds
+    var weather: Weather?
+    var weatherElementValue: WeatherElementValue?
+    
     var body: some View {
         ZStack(alignment: .center) {
             BackgroundView()
@@ -16,18 +18,18 @@ struct WeatherCard: View {
                 Image(systemName: "sun.max")
                     .resizable()
                     .frame(width: 45, height: 45, alignment: .center)
-                Text("桃園市")
+                Text(weather?.locationName ?? "")
                     .font(.system(size: 14))
-                Text("32度")
+                Text("\(weatherElementValue?.value ?? "")°C")
                     .font(.system(size: 30))
                 HStack(alignment: .center) {
                     Image(systemName: "cloud.rain")
                         .frame(width: 20, height: 20, alignment: .center)
-                    Text("降雨機率")
+                    Text(WeatherCardController().getWeatherParameter(weather: weather, type: .probabilityOfRain) + "%")
                         .font(.system(size: 14))
                 }
                 
-                Text("最高溫｜最低溫")
+                Text("\(WeatherCardController().getWeatherParameter(weather: weather, type: .maxTemperature))°C｜\(WeatherCardController().getWeatherParameter(weather: weather, type: .minTemperature))°C")
                     .font(.body)
                     .font(.system(size: 14))
             }

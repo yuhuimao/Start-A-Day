@@ -7,11 +7,12 @@
 
 import Foundation
 
-class NetworkAdapter<Target: TargetType> {
+struct NetworkAdapter<Target: TargetType> {
     
-    let tokenProvider = TokenSource.shared
+    let tokenProvider: TokenProvider
     
     func request(target: Target, completion: @escaping (Result<Data, Error>) -> Void) {
+        print("[\(#line)]" + target.baseURL + target.path)
         guard let url = URL(string: target.baseURL + target.path) else {
             completion(.failure(RequestError.URLInitError))
             return

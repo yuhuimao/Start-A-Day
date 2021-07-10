@@ -11,7 +11,9 @@ enum AppURL {
     
     private enum Domains {
         static let news = "https://newsapi.org/v2"
+        static let weather = "https://opendata.cwb.gov.tw/api/v1/rest/datastore"
     }
     
     static let newsBaseURL = Domains.news
+    static let weather = Domains.weather
 }
