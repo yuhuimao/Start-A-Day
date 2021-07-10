@@ -53,7 +53,7 @@ struct DashboardView: View {
                             }
                     }
                     .fixedSize(horizontal: false, vertical: true)
-                    .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                    .padding(EdgeInsets(top: 0, leading: 4, bottom: 4, trailing: 4))
                     
                     ZStack {
                         List {
