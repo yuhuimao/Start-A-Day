@@ -18,7 +18,7 @@
 		454AB3522692EA99008CAB7B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB3512692EA99008CAB7B /* DashboardView.swift */; };
 		454AB3542692EB62008CAB7B /* WeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB3532692EB62008CAB7B /* WeatherCard.swift */; };
 		454AB35826930F7E008CAB7B /* NewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB35726930F7D008CAB7B /* NewsCard.swift */; };
-		454AB35A26931823008CAB7B /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB35926931823008CAB7B /* ToDoListView.swift */; };
+		454AB35A26931823008CAB7B /* ToDoListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB35926931823008CAB7B /* ToDoListCardView.swift */; };
 		454AB35D26944C75008CAB7B /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB35C26944C75008CAB7B /* AppURL.swift */; };
 		454AB35F26945AAA008CAB7B /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB35E26945AAA008CAB7B /* TargetType.swift */; };
 		454AB36126945B41008CAB7B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454AB36026945B41008CAB7B /* HTTPMethod.swift */; };
@@ -42,6 +42,9 @@
 		4584A4E82698BB8F00577B86 /* WeatherElementValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584A4E72698BB8F00577B86 /* WeatherElementValue.swift */; };
 		45B5683D2695E92900ACB089 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5683C2695E92900ACB089 /* News.swift */; };
 		45B5683F2697028C00ACB089 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5683E2697028C00ACB089 /* WebView.swift */; };
+		45FB67012699928300868A43 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB67002699928300868A43 /* ToDoListView.swift */; };
+		45FB6705269995FB00868A43 /* ToDoThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB6704269995FB00868A43 /* ToDoThing.swift */; };
+		45FB670726999A5300868A43 /* ToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB670626999A5300868A43 /* ToDoListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +82,7 @@
 		454AB3512692EA99008CAB7B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		454AB3532692EB62008CAB7B /* WeatherCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCard.swift; sourceTree = "<group>"; };
 		454AB35726930F7D008CAB7B /* NewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCard.swift; sourceTree = "<group>"; };
-		454AB35926931823008CAB7B /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		454AB35926931823008CAB7B /* ToDoListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListCardView.swift; sourceTree = "<group>"; };
 		454AB35C26944C75008CAB7B /* AppURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURL.swift; sourceTree = "<group>"; };
 		454AB35E26945AAA008CAB7B /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		454AB36026945B41008CAB7B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -103,6 +106,9 @@
 		4584A4E72698BB8F00577B86 /* WeatherElementValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherElementValue.swift; sourceTree = "<group>"; };
 		45B5683C2695E92900ACB089 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		45B5683E2697028C00ACB089 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		45FB67002699928300868A43 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		45FB6704269995FB00868A43 /* ToDoThing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoThing.swift; sourceTree = "<group>"; };
+		45FB670626999A5300868A43 /* ToDoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,10 +204,10 @@
 		454AB3502692EA69008CAB7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45FB66FF2699922A00868A43 /* ToDo List */,
 				454AB3512692EA99008CAB7B /* DashboardView.swift */,
 				454AB3532692EB62008CAB7B /* WeatherCard.swift */,
 				454AB35726930F7D008CAB7B /* NewsCard.swift */,
-				454AB35926931823008CAB7B /* ToDoListView.swift */,
 				45B5683E2697028C00ACB089 /* WebView.swift */,
 				4584A4D626983E9800577B86 /* LoadingView.swift */,
 			);
@@ -248,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				4584A4E526988D8D00577B86 /* WeatherCardController.swift */,
+				45FB670626999A5300868A43 /* ToDoListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,14 +262,40 @@
 		45B5683B2695E90D00ACB089 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45FB6703269995E600868A43 /* ToDo */,
+				45FB6702269995D900868A43 /* Weather */,
 				45B5683C2695E92900ACB089 /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45FB66FF2699922A00868A43 /* ToDo List */ = {
+			isa = PBXGroup;
+			children = (
+				454AB35926931823008CAB7B /* ToDoListCardView.swift */,
+				45FB67002699928300868A43 /* ToDoListView.swift */,
+			);
+			path = "ToDo List";
+			sourceTree = "<group>";
+		};
+		45FB6702269995D900868A43 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
 				4584A4DC26985B2800577B86 /* Weather.swift */,
 				4584A4DE26985B8000577B86 /* WeatherElement.swift */,
 				4584A4E026985E0500577B86 /* WeatherState.swift */,
 				4584A4E226985EAD00577B86 /* WeatherParameter.swift */,
 				4584A4E72698BB8F00577B86 /* WeatherElementValue.swift */,
 			);
-			path = Model;
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		45FB6703269995E600868A43 /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				45FB6704269995FB00868A43 /* ToDoThing.swift */,
+			);
+			path = ToDo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +431,7 @@
 				4584A4D3269730F800577B86 /* LoadImage.swift in Sources */,
 				4584A4D726983E9800577B86 /* LoadingView.swift in Sources */,
 				454AB36326949D73008CAB7B /* NewsAPI.swift in Sources */,
+				45FB670726999A5300868A43 /* ToDoListController.swift in Sources */,
 				45B5683F2697028C00ACB089 /* WebView.swift in Sources */,
 				454AB35826930F7E008CAB7B /* NewsCard.swift in Sources */,
 				45132694268E0D310085E52B /* AppDelegate.swift in Sources */,
@@ -407,6 +441,7 @@
 				4584A4E626988D8D00577B86 /* WeatherCardController.swift in Sources */,
 				45B5683D2695E92900ACB089 /* News.swift in Sources */,
 				4584A4E326985EAD00577B86 /* WeatherParameter.swift in Sources */,
+				45FB67012699928300868A43 /* ToDoListView.swift in Sources */,
 				454AB35D26944C75008CAB7B /* AppURL.swift in Sources */,
 				454AB36B2694A2EC008CAB7B /* Response.swift in Sources */,
 				454AB3672694A07B008CAB7B /* NewService.swift in Sources */,
@@ -420,8 +455,9 @@
 				454AB36D2694A446008CAB7B /* RequestError.swift in Sources */,
 				454AB3692694A0D2008CAB7B /* NetworkAdapter.swift in Sources */,
 				454AB36126945B41008CAB7B /* HTTPMethod.swift in Sources */,
+				45FB6705269995FB00868A43 /* ToDoThing.swift in Sources */,
 				4584A4E82698BB8F00577B86 /* WeatherElementValue.swift in Sources */,
-				454AB35A26931823008CAB7B /* ToDoListView.swift in Sources */,
+				454AB35A26931823008CAB7B /* ToDoListCardView.swift in Sources */,
 				4584A4D9269844A800577B86 /* WeatherAPI.swift in Sources */,
 				4584A4E126985E0500577B86 /* WeatherState.swift in Sources */,
 				4584A4DF26985B8000577B86 /* WeatherElement.swift in Sources */,

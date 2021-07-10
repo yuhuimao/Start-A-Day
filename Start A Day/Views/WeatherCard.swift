@@ -32,6 +32,7 @@ struct WeatherCard: View {
                 Text("\(WeatherCardController().getWeatherParameter(weather: weather, type: .maxTemperature))°C｜\(WeatherCardController().getWeatherParameter(weather: weather, type: .minTemperature))°C")
                     .font(.body)
                     .font(.system(size: 14))
+                    .padding(.top, 4)
             }
             .foregroundColor(.white)
         }

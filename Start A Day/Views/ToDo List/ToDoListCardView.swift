@@ -8,7 +8,10 @@
 import SwiftUI
 import UIKit
 
-struct ToDoListView: View {
+struct ToDoListCardView: View {
+    private let toDoListController = ToDoListController.shared
+    @State private var toDoThingsKeys: [String] = ToDoListController.shared.getToDoThingsKeys()
+    
     var body: some View {
         ZStack(alignment: .center) {
             VStack(alignment: .leading) {
@@ -17,15 +20,18 @@ struct ToDoListView: View {
                         .font(.title3)
                         .foregroundColor(.orange)
                         .bold()
-                    Text("0")
+                    Text("\(toDoThingsKeys.count)")
                         .font(.title)
                         .foregroundColor(.white)
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Item1")
-                    Text("Item1")
-                    Text("Item1")
+                    let keys = toDoListController.topThreeThings()
+                    
+                    ForEach(keys, id: \.self) { keys in
+                        let value = toDoListController.getThings(key: keys)
+                        Text(value)
+                    }
                 }
                 .font(.system(size: 18))
                 .foregroundColor(.white)
@@ -38,8 +44,8 @@ struct ToDoListView: View {
     }
 }
 
-struct ToDoListView_Previews: PreviewProvider {
+struct ToDoListCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoListView()
+        ToDoListCardView()
     }
 }
