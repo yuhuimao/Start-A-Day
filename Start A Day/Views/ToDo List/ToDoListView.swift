@@ -12,11 +12,13 @@ struct ToDoListView: View {
     @State private var toDoThingsKeys: [String] = ToDoListController.shared.getToDoThingsKeys()
     @State private var thing = ""
     @State private var finishTings: Set<String> = []
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
             VStack {
-                HStack() {
+                
+                HStack {
                     TextField("請輸入代辦事項", text: $thing)
                         .font(.system(size: 25))
                         .padding(.leading, 12)
@@ -35,7 +37,7 @@ struct ToDoListView: View {
                     .background(Color.green)
                 }
                 .border(Color.gray, width: 0.5)
-                .padding(EdgeInsets(top: 32, leading: 16, bottom: 0, trailing: 16))
+                .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
                 
                 Spacer()
                 

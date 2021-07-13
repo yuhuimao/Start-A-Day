@@ -56,7 +56,7 @@ class ToDoListController {
         if things.isEmpty {
             return []
         } else {
-            if things.count > 0 {
+            if things.count > 2 {
                 for index in 0...2 {
                     topThreeThings.append(things[index])
                 }
@@ -67,7 +67,7 @@ class ToDoListController {
                 }
                 return topThreeThings
             } else if things.count > 0 {
-                
+                topThreeThings.append(things[0])
                 return topThreeThings
             }
         }

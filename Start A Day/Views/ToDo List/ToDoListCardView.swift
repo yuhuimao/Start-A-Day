@@ -10,7 +10,7 @@ import UIKit
 
 struct ToDoListCardView: View {
     private let toDoListController = ToDoListController.shared
-    @State private var toDoThingsKeys: [String] = ToDoListController.shared.getToDoThingsKeys()
+    @Binding var toDoThingsKeys: [String]
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -46,6 +46,7 @@ struct ToDoListCardView: View {
 
 struct ToDoListCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoListCardView()
+
+        ToDoListCardView(toDoThingsKeys: .constant([]))
     }
 }

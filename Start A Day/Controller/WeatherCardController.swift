@@ -9,6 +9,10 @@ import Foundation
 
 class WeatherCardController {
     
+    // MARK: - Properties
+    
+    static let shared = WeatherCardController()
+    
     // MARK: - Initializer
     
     init() {}

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct WeatherCard: View {
-    var weather: Weather?
-    var weatherElementValue: WeatherElementValue?
+    private let weatherController = WeatherCardController.shared
+    
+    @Binding var weather: Weather?
+    @Binding var weatherElementValue: WeatherElementValue?
     
     var body: some View {
         ZStack(alignment: .center) {
             BackgroundView()
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 4) {
                 Image(systemName: "sun.max")
                     .resizable()
                     .frame(width: 45, height: 45, alignment: .center)
@@ -25,14 +27,22 @@ struct WeatherCard: View {
                 HStack(alignment: .center) {
                     Image(systemName: "cloud.rain")
                         .frame(width: 20, height: 20, alignment: .center)
-                    Text(WeatherCardController().getWeatherParameter(weather: weather, type: .probabilityOfRain) + "%")
+                    Text(weatherController.getWeatherParameter(weather: weather, type: .probabilityOfRain) + "%")
                         .font(.system(size: 14))
                 }
                 
-                Text("\(WeatherCardController().getWeatherParameter(weather: weather, type: .maxTemperature))°C｜\(WeatherCardController().getWeatherParameter(weather: weather, type: .minTemperature))°C")
-                    .font(.body)
-                    .font(.system(size: 14))
-                    .padding(.top, 4)
+                HStack {
+                    let maxTemperature = weatherController.getWeatherParameter(weather: weather, type: .maxTemperature)
+                    let minTemperature = weatherController.getWeatherParameter(weather: weather, type: .minTemperature)
+                    Image(systemName: "thermometer.sun.fill")
+                    Text("\(maxTemperature)°C")
+                    Text("|")
+                    Image(systemName: "thermometer.snowflake")
+                    Text("\(minTemperature)°C")
+                }
+                .font(.body)
+                .font(.system(size: 14))
+                .padding(.top, 4)
             }
             .foregroundColor(.white)
         }
@@ -53,6 +63,7 @@ struct BackgroundView: View {
 
 struct WeatherCard_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCard()
+        
+        WeatherCard(weather: .constant(Weather(locationName: "", elements: [])), weatherElementValue: .constant(WeatherElementValue(value: "")))
     }
 }
