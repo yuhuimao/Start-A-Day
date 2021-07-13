@@ -23,7 +23,7 @@ struct DashboardView: View {
             GeometryReader { geometry in
                 VStack {
                     HStack(spacing: 4) {
-                        WeatherCard(weather: $weather, weatherElementValue: $weatherElementValue)
+                        WeatherCard(weather: weather, weatherElementValue: weatherElementValue)
                             .onAppear {
                                 weatherService.getWeather(locationName: "桃園市") { result in
                                     switch result {
@@ -45,7 +45,7 @@ struct DashboardView: View {
                                 }
                             }
                         
-                        ToDoListCardView(toDoThingsKeys: $toDoThingsKeys)
+                        ToDoListCardView(toDoThingsKeys: toDoThingsKeys)
                             .onTapGesture {
                                 isShowToDoList.toggle()
                             }

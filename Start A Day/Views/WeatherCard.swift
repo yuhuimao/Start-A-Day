@@ -10,8 +10,8 @@ import SwiftUI
 struct WeatherCard: View {
     private let weatherController = WeatherCardController.shared
     
-    @Binding var weather: Weather?
-    @Binding var weatherElementValue: WeatherElementValue?
+    var weather: Weather?
+    var weatherElementValue: WeatherElementValue?
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -64,6 +64,6 @@ struct BackgroundView: View {
 struct WeatherCard_Previews: PreviewProvider {
     static var previews: some View {
         
-        WeatherCard(weather: .constant(Weather(locationName: "", elements: [])), weatherElementValue: .constant(WeatherElementValue(value: "")))
+        WeatherCard()
     }
 }
