@@ -9,4 +9,5 @@ import Foundation
 
 protocol TokenProvider {
     var token: String { get set }
+    var weatherToken: String { get set }
 }

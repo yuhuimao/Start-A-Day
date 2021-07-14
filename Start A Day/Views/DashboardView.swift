@@ -14,7 +14,9 @@ struct DashboardView: View {
     @State private var weather: Weather?
     @State private var weatherElementValue: WeatherElementValue?
     @State private var isShowToDoList = false
+    @State private var isShowLocationList = false
     @State private var toDoThingsKeys: [String] = []
+    @State private var locationName = ""
     
     private let weatherService = WeatherService.shared
     
@@ -25,24 +27,17 @@ struct DashboardView: View {
                     HStack(spacing: 4) {
                         WeatherCard(weather: weather, weatherElementValue: weatherElementValue)
                             .onAppear {
-                                weatherService.getWeather(locationName: "桃園市") { result in
-                                    switch result {
-                                    case .success(let weather):
-                                        self.weather = weather
-                                    case .failure(let error):
-                                        break
-                                    }
-                                }
-                                
-                                weatherService.getTemperature(locationName: "桃園市") { result in
-                                    switch result {
-                                    case .success(let weatherElementValue):
-                                        self.weatherElementValue = weatherElementValue
-                                        
-                                    case .failure(let error):
-                                        break
-                                    }
-                                }
+                                getWeather()
+                            }
+                            .sheet(isPresented: $isShowLocationList, onDismiss: {
+                                self.locationName = locationName
+                                print(locationName)
+                                getWeather(location: locationName)
+                            }) {
+                                LocationListView(locationName: $locationName)
+                            }
+                            .onTapGesture {
+                                isShowLocationList.toggle()
                             }
                         
                         ToDoListCardView(toDoThingsKeys: toDoThingsKeys)
@@ -97,6 +92,32 @@ struct DashboardView: View {
                     Spacer()
                 }
                 .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+}
+
+// MARK: - Mehods
+private extension DashboardView {
+    
+    func getWeather(location: String = "臺北市") {
+        weatherService.getWeather(locationName: location) { result in
+            switch result {
+            case .success(let weather):
+                self.weather = weather
+                print("[\(#line)] \(weather)")
+            case .failure:
+                break
+            }
+        }
+        
+        weatherService.getTemperature(locationName: location) { result in
+            switch result {
+            case .success(let weatherElementValue):
+                self.weatherElementValue = weatherElementValue
+                
+            case .failure:
+                break
+            }
         }
     }
 }

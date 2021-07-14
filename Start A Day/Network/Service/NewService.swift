@@ -8,11 +8,11 @@
 import SwiftUI
 import Foundation
 
-class NewService: ObservableObject {
+class NewService {
     
     // MARK: - Properties
     
-    private let networkAdapter: NetworkAdapter<NewsAPI>
+    private let networkAdapter: NewsNetworkAdapter<NewsAPI>
     
     private let tokenSource = TokenSource.shared
     
@@ -20,7 +20,7 @@ class NewService: ObservableObject {
     
     private init() {
         tokenSource.token = ""
-        networkAdapter = NetworkAdapter<NewsAPI>(tokenProvider: tokenSource)
+        networkAdapter = NewsNetworkAdapter<NewsAPI>(tokenProvider: tokenSource)
     }
     
     // MARK: - Methods

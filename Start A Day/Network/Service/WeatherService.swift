@@ -11,15 +11,15 @@ class WeatherService {
     
     // MARK: - Properties
     
-    private let networkAdapter: NetworkAdapter<WeatherAPI>
-    
     private let tokenSource = TokenSource.shared
+    
+    private let networkAdapter: WeatherNetworkAdapter<WeatherAPI>
     
     static let shared = WeatherService()
     
     private init() {
-        tokenSource.token = Constants.weatherToken
-        networkAdapter = NetworkAdapter<WeatherAPI>(tokenProvider: tokenSource)
+        tokenSource.weatherToken = Constants.weatherToken
+        networkAdapter = WeatherNetworkAdapter<WeatherAPI>(tokenProvider: tokenSource)
     }
     
     // MARK: - Methods

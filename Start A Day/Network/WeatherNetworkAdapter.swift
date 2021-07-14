@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NetworkAdapter<Target: TargetType> {
+struct WeatherNetworkAdapter<Target: TargetType> {
     
     let tokenProvider: TokenProvider
     
@@ -26,7 +26,7 @@ struct NetworkAdapter<Target: TargetType> {
         
         
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.httpAdditionalHeaders = ["Authorization": tokenProvider.token]
+        sessionConfig.httpAdditionalHeaders = ["Authorization": tokenProvider.weatherToken]
         
         let session = URLSession(configuration: sessionConfig)
         let task = session.dataTask(with: request) { data, _, error in

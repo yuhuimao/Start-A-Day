@@ -15,9 +15,10 @@ struct WeatherCard: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            BackgroundView()
+            BackgroundView(weather: weather)
             VStack(alignment: .center, spacing: 4) {
-                Image(systemName: "sun.max")
+                let iconImage = weatherController.getWeatherIconImageName(weather: weather)
+                Image(systemName: iconImage)
                     .resizable()
                     .frame(width: 45, height: 45, alignment: .center)
                 Text(weather?.locationName ?? "")
@@ -55,8 +56,11 @@ struct WeatherCard: View {
 }
 
 struct BackgroundView: View {
+    var weather: Weather?
+    
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [.blue, .gray]), startPoint: .top, endPoint: .bottom)
+        let gradientColors =  WeatherCardController.shared.getBackgroundColors(weather: weather)
+        LinearGradient(gradient: Gradient(colors: gradientColors), startPoint: .top, endPoint: .bottom)
             .aspectRatio(1, contentMode: .fit)
     }
 }

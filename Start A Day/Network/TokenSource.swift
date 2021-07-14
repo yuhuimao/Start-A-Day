@@ -16,6 +16,16 @@ class TokenSource: TokenProvider {
     // 目前只有一個token所以直接先存在同一個key中
     var token: String {
         get {
+            return ""
+        }
+        
+        set {
+            
+        }
+    }
+    
+    var weatherToken: String {
+        get {
             return UserDefaults.standard.string(forKey: "Token") ?? ""
         }
         

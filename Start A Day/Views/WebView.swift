@@ -15,6 +15,7 @@ struct WebView: UIViewRepresentable {
     // MARK: - Properties
     
     let news: News
+    
     let urlString: String
     
     // MARK: - Methods
