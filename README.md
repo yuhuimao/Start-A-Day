@@ -9,10 +9,23 @@
 
 ### UI
 * 使用SwiftUI刻UI
-* 使用UIKit + SwiftUI刻部分畫面(如WKWebView)
+* 使用UIKit + SwiftUI刻部分畫面(如WKWebView、SearchBar)
 
 ### 資料存取
 * 使用UserDefault來儲存「代辦清單」的資訊
 * 使用中央氣象局及NewsAPI的open API來取得天氣及新聞的資訊
 
-![image](https://github.com/yuhuimao/Start-A-Day/blob/main/startADayDemo.png)
+## 操作畫面
+
+### 首頁
+<img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2016.50.10.png" width="250" height="550" />
+
+
+### 選擇顯示天氣地區
+<img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2017.05.09.png" width="250" height="550" /> <img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2017.05.26.png" width="250" height="550" />
+
+### 新增及完成待辦事項
+<img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2017.06.08.png" width="250" height="550" /> <img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2017.06.11.png" width="250" height="550" />
+
+### 新聞 WebView
+<img src="https://github.com/yuhuimao/Start-A-Day/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20mini%20-%202021-07-16%20at%2017.06.31.png" width="250" height="550" />
