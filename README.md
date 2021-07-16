@@ -16,7 +16,7 @@
 * 使用中央氣象局及NewsAPI的open API來取得天氣及新聞的資訊
 
 ### WebView
-* 使用WebView顯示新聞頁面
+* 使用WebView開啟新聞頁面
 
 ## 操作畫面
 
